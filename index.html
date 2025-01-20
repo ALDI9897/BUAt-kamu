@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Pop-Up Website</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fce4ec;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 350px;
+      background: #fff;
+      border: 2px solid #ffa726;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      z-index: 1000;
+    }
+
+    .popup img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    .popup p {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .popup button {
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #ffa726;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .popup button:hover {
+      background-color: #fb8c00;
+    }
+  </style>
+</head>
+<body>
+  <!-- Background music -->
+  <audio id="background-music" autoplay loop>
+    <source src="your-music-file.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Pop-Up Container -->
+  <div class="popup" id="popup">
+    <img id="popup-image" src="image1.png" alt="Image">
+    <p id="popup-text">Hallo Sayang 👋👋👋</p>
+    <button onclick="nextPopup()" id="next-button">Next</button>
+  </div>
+
+  <script>
+    const popups = [
+      {
+        image: "image1.png",
+        text: "Hallo Sayang 👋👋👋"
+      },
+      {
+        image: "gif1.gif",
+        text: "Makasih yaa udah bikin hariku akhir-akhir ini jadi berwarna,tetep jadi Niaa yang aku kenal yaa!!"
+      },
+      {
+        image: "gif2.gif",
+        text: "Walaupun kita kenal juga baru sebentar banget, ayok kita mengenal lebih jauh untuk hari kedepannya hehe"
+      },
+      {
+        image: "gif3.gif",
+        text: "Makasih udah baca semuanyaa, lanjut yukk ada lagu nih buat kamu. oiyaa semangat volinya sayangg"
+      }
+    ];
+
+    let currentIndex = 0;
+
+    function nextPopup() {
+      currentIndex++;
+
+      if (currentIndex >= popups.length) {
+        // Redirect to Spotify playlist
+        window.location.href = "https://open.spotify.com/playlist/1rVcCYmKriVBxe2AnCIy8X?si=344fdcd8f3dc470e";
+        return;
+      }
+
+      // Update the pop-up content
+      document.getElementById("popup-image").src = popups[currentIndex].image;
+      document.getElementById("popup-text").textContent = popups[currentIndex].text;
+    }
+  </script>
+</body>
+</html>
